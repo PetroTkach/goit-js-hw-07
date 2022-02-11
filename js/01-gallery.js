@@ -31,8 +31,12 @@ function createGalleryItems(galleryItems) {
 
 function onGalleryContainerClick(evt) {
   evt.preventDefault();
+
+  if (!evt.target.dataset.source) {
+    return;
+  }
   const cardUrl = evt.target.dataset.source;
-  // console.log("cardUrl", cardUrl);
+  console.log("cardUrl", cardUrl);
   const instance = basicLightbox.create(`
     <img src="${evt.target.dataset.source}" width="800" height="600">
 `);
